@@ -4,6 +4,7 @@ import csv
 import sqlite3
 import json
 from datetime import datetime
+from generate_docs import fetch_live_schema_and_generate_md
 
 # Path Mappings aligning with your src/ layout
 DATA_DROP_ZONE = "src/joy-backend/data_ref"
@@ -139,6 +140,8 @@ def process_active_drops():
             
     if drift_detected:
         generate_html_schema_diagram()
+        fetch_live_schema_and_generate_md() 
+        #generate_html_schema_diagram()
 
 if __name__ == "__main__":
     process_active_drops()
